@@ -30,3 +30,6 @@ The `SensorData` class defines the structure of the sensor data being stored:
 - **Initialization**: Configures a background service using the flutter_background_service package to run Dart code continuously, even when the application is closed.
 - **Sensor Data Collection**: Listens to accelerometer and gyroscope events and saves the data using the SensorDataController.
 - **Service Management**: Provides functionality to start and stop the background service.
+
+## Working Demo
+https://github.com/user-attachments/assets/e4331e6a-ffdc-4607-a8ea-13fde529624e
