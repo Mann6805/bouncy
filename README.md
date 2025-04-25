@@ -1,16 +1,32 @@
-# bouncy
+# Bouncy App - Sensor Data Controller
 
-A new Flutter project.
+This project implements a **SensorDataController** in Flutter to handle accelerometer and gyroscope data. The data is managed using **Hive** for local storage, allowing efficient storage, retrieval, and deletion of sensor data.
 
-## Getting Started
+## Features
+- **Save Sensor Data**: Capture accelerometer and gyroscope sensor data and store it in a local database.
+- **Delete Sensor Data**: Clear all sensor data from the local storage.
+- **Paginated Data Fetching**: Retrieve sensor data efficiently with pagination to manage large datasets.
 
-This project is a starting point for a Flutter application.
+## Libraries Used
+- [Hive](https://pub.dev/packages/hive): A fast and lightweight local database.
+- [sensors_plus](https://pub.dev/packages/sensors_plus): A Flutter plugin for accessing accelerometer and gyroscope sensor data.
+- [quickanimate](https://pub.dev/packages/quickanimate): A Flutter package for animations to enhance user interface.
 
-A few resources to get you started if this is your first Flutter project:
+## Code Overview
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### `SensorDataController`
+The `SensorDataController` is the main class responsible for managing sensor data. It provides methods to:
+- **Save sensor data**: Captures accelerometer and gyroscope data and stores it in the `Hive` database.
+- **Delete all sensor data**: Clears all data stored in the database.
+- **Fetch sensor data with pagination**: Retrieves data in chunks, improving performance when dealing with large datasets.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### `SensorData` Model
+The `SensorData` class defines the structure of the sensor data being stored:
+- **Accelerometer data**: X and Y axis values.
+- **Gyroscope data**: Z axis value.
+- **Timestamp**: The time the data was captured.
+
+### `Background` Service
+- **Initialization**: Configures a background service using the flutter_background_service package to run Dart code continuously, even when the application is closed.
+- **Sensor Data Collection**: Listens to accelerometer and gyroscope events and saves the data using the SensorDataController.
+- **Service Management**: Provides functionality to start and stop the background service.
